@@ -1,0 +1,241 @@
+/* Color Variables */
+:root {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #26334a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --border-hover: #475569;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.max-w-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.icon-box {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+/* Form Card */
+.task-form-card {
+  background-color: var(--bg-card);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 30px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.task-form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.task-input {
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.form-controls select {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-add {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.task-item:hover {
+  border-color: var(--border-hover);
+  background-color: var(--bg-card-hover);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+  background-color: rgba(30, 41, 59, 0.4);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.icon-pending { color: var(--text-muted); }
+.icon-completed { color: #10b981; }
+
+.task-title {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.task-meta {
+  display: flex;
+  gap: 10px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.category-badge { color: var(--text-muted); }
+.priority-badge.high { background: #fee2e2; color: #dc2626; }
+.priority-badge.medium { background: #fef3c7; color: #d97706; }
+.priority-badge.low { background: #dbeafe; color: #2563eb; }
+
+/* Delete Button */
+.btn-delete {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+  opacity: 0; /* Hidden by default */
+}
+
+.task-item:hover .btn-delete {
+  opacity: 1; /* Shows on hover */
+}
+
+.btn-delete:hover {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+.empty-icon {
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
